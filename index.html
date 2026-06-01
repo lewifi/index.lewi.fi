@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lewi Hirvelä</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400;1,9..144,500&family=Hanken+Grotesk:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#3a1d2b;
+    --ink-soft:#6b4452;
+    --cream:#fff6ef;
+    --bg-a:#ffd7bd;
+    --bg-b:#ff9e8c;
+    --bg-c:#ff738c;
+    --bg-d:#ffc59e;
+    --dusk:#7d77e0;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+
+  html{-webkit-text-size-adjust:100%}
+
+  body{
+    font-family:"Hanken Grotesk",sans-serif;
+    color:var(--ink);
+    background:#ffb89c;
+    min-height:100vh;
+    overflow-x:hidden;
+    position:relative;
+  }
+
+  /* ---- animated sunset sky ---- */
+  .sky{
+    position:fixed;
+    inset:0;
+    z-index:-3;
+    background:
+      radial-gradient(120% 90% at 12% 8%, var(--bg-a) 0%, transparent 55%),
+      radial-gradient(110% 90% at 88% 18%, #ffcf9e 0%, transparent 50%),
+      radial-gradient(130% 100% at 78% 95%, var(--bg-c) 0%, transparent 55%),
+      radial-gradient(120% 100% at 18% 92%, #ff8f7a 0%, transparent 55%),
+      linear-gradient(160deg, #ffe2c8 0%, #ff9f8c 45%, #ff7d92 100%);
+    background-size:200% 200%,200% 200%,200% 200%,200% 200%,100% 100%;
+    animation:drift 26s ease-in-out infinite alternate;
+  }
+  @keyframes drift{
+    0%{background-position:0% 0%,100% 0%,100% 100%,0% 100%,0% 0%}
+    100%{background-position:30% 20%,70% 30%,60% 70%,30% 80%,0% 100%}
+  }
+
+  /* ---- floating blobs (subtle) ---- */
+  .blob{
+    position:fixed;
+    z-index:-2;
+    border-radius:50%;
+    filter:blur(60px);
+    opacity:.55;
+    mix-blend-mode:soft-light;
+    will-change:transform;
+  }
+  .blob.b1{width:46vw;height:46vw;left:-8vw;top:-10vh;background:#ffd17a;animation:float1 22s ease-in-out infinite}
+  .blob.b2{width:40vw;height:40vw;right:-10vw;top:18vh;background:#ff5f86;animation:float2 28s ease-in-out infinite}
+  .blob.b3{width:50vw;height:50vw;left:20vw;bottom:-22vh;background:#c06ad9;animation:float3 32s ease-in-out infinite}
+  @keyframes float1{50%{transform:translate(8vw,10vh) scale(1.12)}}
+  @keyframes float2{50%{transform:translate(-6vw,8vh) scale(1.08)}}
+  @keyframes float3{50%{transform:translate(-10vw,-6vh) scale(1.15)}}
+
+  /* ---- moving waves (obvious) ---- */
+  .waves{
+    position:fixed;
+    left:0;right:0;bottom:0;
+    z-index:-1;
+    height:42vh;
+    pointer-events:none;
+    opacity:.85;
+  }
+  .waves svg{position:absolute;bottom:0;width:200%;height:100%}
+  .w1{animation:slide 18s linear infinite}
+  .w2{animation:slide 26s linear infinite reverse}
+  .w3{animation:slide 34s linear infinite}
+  @keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  /* ---- grain ---- */
+  body::after{
+    content:"";
+    position:fixed;inset:0;z-index:50;pointer-events:none;
+    opacity:.05;mix-blend-mode:multiply;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* ---- layout ---- */
+  .wrap{
+    max-width:1320px;
+    margin:0 auto;
+    padding:clamp(28px,6vw,72px) clamp(18px,5vw,56px) 96px;
+    position:relative;
+    z-index:2;
+  }
+
+  header{
+    margin-bottom:clamp(28px,5vw,54px);
+    opacity:0;
+    animation:rise .9s cubic-bezier(.2,.8,.2,1) forwards;
+  }
+  .eyebrow{
+    font-family:"DM Mono",monospace;
+    font-size:12px;
+    letter-spacing:.32em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    display:flex;align-items:center;gap:10px;
+  }
+  .eyebrow::before{content:"";width:26px;height:1px;background:var(--ink-soft);display:inline-block}
+  .wordmark{
+    font-family:"Fraunces",serif;
+    font-weight:600;
+    font-size:clamp(48px,11vw,108px);
+    line-height:.92;
+    letter-spacing:-.02em;
+    margin:18px 0 10px;
+  }
+  .wordmark em{font-style:italic;font-weight:400;color:#d6406a}
+  .tagline{
+    font-size:clamp(15px,2vw,18px);
+    color:var(--ink-soft);
+    max-width:46ch;
+  }
+
+  /* ---- grid ---- */
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+    gap:clamp(12px,1.6vw,20px);
+  }
+
+  .tile{
+    position:relative;
+    aspect-ratio:1/1;
+    border-radius:20px;
+    padding:clamp(16px,1.6vw,22px);
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    text-decoration:none;
+    color:var(--ink);
+    overflow:hidden;
+    background:rgba(255,250,244,.62);
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);
+    border:1px solid rgba(255,255,255,.55);
+    box-shadow:0 10px 30px -16px rgba(90,30,50,.5);
+    transition:transform .5s cubic-bezier(.2,.8,.2,1), box-shadow .5s, background .4s;
+    opacity:0;
+    transform:translateY(26px);
+    animation:rise .8s cubic-bezier(.2,.8,.2,1) forwards;
+  }
+  /* tinted accent glow sweeping the grid like a sunset */
+  .tile::before{
+    content:"";
+    position:absolute;
+    width:140%;height:140%;
+    right:-50%;top:-55%;
+    background:radial-gradient(circle, var(--accent) 0%, transparent 62%);
+    opacity:.5;
+    transition:opacity .5s, transform .7s cubic-bezier(.2,.8,.2,1);
+  }
+  .tile:hover{
+    transform:translateY(-8px);
+    box-shadow:0 26px 50px -20px var(--accent);
+    background:rgba(255,252,248,.78);
+  }
+  .tile:hover::before{opacity:.85;transform:translate(-8%,8%) scale(1.06)}
+
+  .tile .num{
+    font-family:"DM Mono",monospace;
+    font-size:12px;
+    letter-spacing:.14em;
+    color:var(--ink-soft);
+    position:relative;z-index:1;
+  }
+  .tile .body{position:relative;z-index:1}
+  .tile .name{
+    font-family:"Fraunces",serif;
+    font-weight:600;
+    font-size:clamp(21px,2.4vw,27px);
+    line-height:1.04;
+    letter-spacing:-.01em;
+    margin-bottom:6px;
+  }
+  .tile .desc{
+    font-size:13.5px;
+    line-height:1.32;
+    color:var(--ink-soft);
+  }
+  .tile .url{
+    font-family:"DM Mono",monospace;
+    font-size:11.5px;
+    letter-spacing:.02em;
+    color:var(--ink);
+    position:relative;z-index:1;
+    display:flex;align-items:center;justify-content:space-between;
+    gap:8px;
+  }
+  .tile .url .dot{
+    width:8px;height:8px;border-radius:50%;
+    background:var(--accent);
+    box-shadow:0 0 0 0 var(--accent);
+    transition:box-shadow .5s, transform .5s;
+    flex:0 0 auto;
+  }
+  .tile:hover .url .dot{transform:scale(1.15);box-shadow:0 0 14px 2px var(--accent)}
+  .tile .arrow{
+    transition:transform .5s cubic-bezier(.2,.8,.2,1);
+    display:inline-block;
+  }
+  .tile:hover .arrow{transform:translate(4px,-4px)}
+
+  footer{
+    margin-top:clamp(30px,5vw,52px);
+    font-family:"DM Mono",monospace;
+    font-size:12px;
+    letter-spacing:.04em;
+    color:var(--ink-soft);
+    display:flex;flex-wrap:wrap;gap:6px 18px;justify-content:space-between;
+    opacity:0;
+    animation:rise .8s ease forwards .9s;
+  }
+
+  @keyframes rise{to{opacity:1;transform:translateY(0)}}
+
+  /* staggered tile reveal */
+  .tile:nth-child(1){animation-delay:.10s}
+  .tile:nth-child(2){animation-delay:.16s}
+  .tile:nth-child(3){animation-delay:.22s}
+  .tile:nth-child(4){animation-delay:.28s}
+  .tile:nth-child(5){animation-delay:.34s}
+  .tile:nth-child(6){animation-delay:.40s}
+  .tile:nth-child(7){animation-delay:.46s}
+  .tile:nth-child(8){animation-delay:.52s}
+  .tile:nth-child(9){animation-delay:.58s}
+  .tile:nth-child(10){animation-delay:.64s}
+  .tile:nth-child(11){animation-delay:.70s}
+  .tile:nth-child(12){animation-delay:.76s}
+
+  /* ---- mobile: 2 per row ---- */
+  @media (max-width:640px){
+    .grid{grid-template-columns:repeat(2,1fr);gap:11px}
+    .tile{border-radius:16px;padding:14px}
+    .tile .name{font-size:18px}
+    .tile .desc{font-size:11.5px}
+    .tile .url{font-size:10px}
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    .sky,.blob,.w1,.w2,.w3{animation:none}
+    header,.tile,footer{animation:none;opacity:1;transform:none}
+  }
+</style>
+</head>
+<body>
+
+  <div class="sky"></div>
+  <div class="blob b1"></div>
+  <div class="blob b2"></div>
+  <div class="blob b3"></div>
+
+  <div class="waves" aria-hidden="true">
+    <svg class="w1" viewBox="0 0 1440 320" preserveAspectRatio="none"><path fill="#ff6f8e" d="M0,224L60,213.3C120,203,240,181,360,181.3C480,181,600,203,720,202.7C840,203,960,181,1080,176C1200,171,1320,181,1380,186.7L1440,192L1440,320L0,320Z M1440,224L1500,213.3C1560,203,1680,181,1800,181.3C1920,181,2040,203,2160,202.7C2280,203,2400,181,2520,176C2640,171,2760,181,2820,186.7L2880,192L2880,320L1440,320Z"/></svg>
+    <svg class="w2" viewBox="0 0 1440 320" preserveAspectRatio="none"><path fill="#ff9472" fill-opacity="0.8" d="M0,256L60,256C120,256,240,256,360,234.7C480,213,600,171,720,165.3C840,160,960,192,1080,202.7C1200,213,1320,203,1380,197.3L1440,192L1440,320L0,320Z M1440,256L1500,256C1560,256,1680,256,1800,234.7C1920,213,2040,171,2160,165.3C2280,160,2400,192,2520,202.7C2640,213,2760,203,2820,197.3L2880,192L2880,320L1440,320Z"/></svg>
+    <svg class="w3" viewBox="0 0 1440 320" preserveAspectRatio="none"><path fill="#ffc48a" fill-opacity="0.7" d="M0,288L80,277.3C160,267,320,245,480,250.7C640,256,800,288,960,288C1120,288,1280,256,1360,240L1440,224L1440,320L0,320Z M1440,288L1520,277.3C1600,267,1760,245,1920,250.7C2080,256,2240,288,2400,288C2560,288,2720,256,2800,240L2880,224L2880,320L1440,320Z"/></svg>
+  </div>
+
+  <main class="wrap">
+    <header>
+      <div class="eyebrow">Index</div>
+      <h1 class="wordmark">Lewi <em>Hirvelä</em></h1>
+      <p class="tagline">Everything in one place. Design, photography, sound, and a couple of side projects.</p>
+    </header>
+
+    <nav class="grid">
+
+      <a class="tile" style="--accent:#ffbf69" href="https://lewihirvela.com">
+        <span class="num">01</span>
+        <div class="body">
+          <div class="name">Portfolio</div>
+          <div class="desc">Design, motion and brand work.</div>
+        </div>
+        <div class="url"><span><span class="dot"></span> lewihirvela.com</span><span class="arrow">↗</span></div>
+      </a>
+
+      <a class="tile" style="--accent:#ffa06b" href="https://lewi.fi">
+        <span class="num">02</span>
+        <div class="body">
+          <div class="name">Photography</div>
+          <div class="desc">Portraits, weddings, editorial.</div>
+        </div>
+        <div class="url"><span><span class="dot"></span> lewi.fi</span><span class="arrow">↗</span></div>
+      </a>
+
+      <a class="tile" style="--accent:#ff8566" href="https://melunoise.com">
+        <span class="num">03</span>
+        <div class="body">
+          <div class="name">MELU</div>
+          <div class="desc">My band. "When Noise Becomes" out now.</div>
+        </div>
+        <div class="url"><span><span class="dot"></span> melunoise.com</span><span class="arrow">↗</span></div>
+      </a>
+
+      <a class="tile" style="--accent:#ff6f6f" href="https://ephix.net">
+        <span class="num">04</span>
+        <div class="body">
+          <div class="name">EPHIX Pulse</div>
+          <div class="desc">Live TV and film trending aggregator.</div>
+        </div>
+        <div class="url"><span><span class="dot"></span> ephix.net</span><span class="arrow">↗</span></div>
+      </a>
+
+      <a class="tile" style="--accent:#ff6383" href="https://ephix.net/wc2026">
+        <span class="num">05</span>
+        <div class="body">
+          <div class="name">World Cup 2026</div>
+          <div class="desc">Schedule, calendar importer and stats.</div>
+        </div>
+        <div class="url"><span><span class="dot"></span> ephix.net/wc2026</span><span class="arrow">↗</span></div>
+      </a>
+
+      <a class="tile" style="--accent:#fb5e96" href="https://instagram.com/lewi.fi">
+        <span class="num">06</span>
+        <div class="body">
+          <div class="name">Instagram</div>
+          <div class="desc">The photography feed.</div>
+        </div>
+        <div class="url"><span><span class="dot"></span> @lewi.fi</span><span class="arrow">↗</span></div>
+      </a>
+
+      <a class="tile" style="--accent:#ef60a6" href="https://instagram.com/lewihirvela.photo">
+        <span class="num">07</span>
+        <div class="body">
+          <div class="name">Instagram</div>
+          <div class="desc">More photo work.</div>
+        </div>
+        <div class="url"><span><span class="dot"></span> @lewihirvela.photo</span><span class="arrow">↗</span></div>
+      </a>
+
+      <a class="tile" style="--accent:#db64b4" href="https://linkedin.com/in/lewihirvela">
+        <span class="num">08</span>
+        <div class="body">
+          <div class="name">LinkedIn</div>
+          <div class="desc">The professional side.</div>
+        </div>
+        <div class="url"><span><span class="dot"></span> in/lewihirvela</span><span class="arrow">↗</span></div>
+      </a>
+
+      <a class="tile" style="--accent:#c269c6" href="https://github.com/lewifi">
+        <span class="num">09</span>
+        <div class="body">
+          <div class="name">GitHub</div>
+          <div class="desc">Code and the things I tinker with.</div>
+        </div>
+        <div class="url"><span><span class="dot"></span> github.com/lewifi</span><span class="arrow">↗</span></div>
+      </a>
+
+      <a class="tile" style="--accent:#a76fd4" href="https://flickr.com/photos/ephix/albums">
+        <span class="num">10</span>
+        <div class="body">
+          <div class="name">Flickr</div>
+          <div class="desc">The photo archive.</div>
+        </div>
+        <div class="url"><span><span class="dot"></span> flickr.com/ephix</span><span class="arrow">↗</span></div>
+      </a>
+
+      <a class="tile" style="--accent:#8f73dd" href="https://vimeo.com/lewi">
+        <span class="num">11</span>
+        <div class="body">
+          <div class="name">Vimeo</div>
+          <div class="desc">Motion and film.</div>
+        </div>
+        <div class="url"><span><span class="dot"></span> vimeo.com/lewi</span><span class="arrow">↗</span></div>
+      </a>
+
+      <a class="tile" style="--accent:#7d77e0" href="mailto:me@lewi.fi">
+        <span class="num">12</span>
+        <div class="body">
+          <div class="name">Say hello</div>
+          <div class="desc">Drop me a line any time.</div>
+        </div>
+        <div class="url"><span><span class="dot"></span> me@lewi.fi</span><span class="arrow">→</span></div>
+      </a>
+
+    </nav>
+
+    <footer>
+      <span>Lewi Hirvelä</span>
+      <span>Brisbane · Davao · Lapland</span>
+      <span>Every image is real. No AI, ever.</span>
+    </footer>
+  </main>
+
+</body>
+</html>
