@@ -94,10 +94,19 @@
   }
   @keyframes hue{from{filter:hue-rotate(0deg)}to{filter:hue-rotate(360deg)}}
 
-  /* horizon silhouette */
-  .horizon{position:fixed;left:0;right:0;bottom:0;height:30vh;z-index:-3;pointer-events:none}
-  .horizon svg{position:absolute;bottom:0;width:200%;height:100%;animation:slide 40s linear infinite}
-  @keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  /* horizon waves */
+  .horizon{position:fixed;left:0;right:0;bottom:0;height:46vh;z-index:-3;pointer-events:none}
+  .horizon .wv{position:absolute;left:0;bottom:0;width:200%;height:100%;will-change:transform;mix-blend-mode:screen}
+  .horizon .wv svg{width:100%;height:100%;display:block}
+  .wv-back  {animation:slide 16s linear infinite}
+  .wv-mid   {animation:slide 11s linear infinite reverse}
+  .wv-front {animation:slide 8s  linear infinite}
+  .wv-back  svg{animation:bobA 7s   ease-in-out infinite;filter:blur(1.5px)}
+  .wv-mid   svg{animation:bobB 5.5s ease-in-out infinite;filter:blur(.5px)}
+  .wv-front svg{animation:bobA 4.5s ease-in-out infinite}
+  @keyframes slide{from{transform:translate3d(0,0,0)}to{transform:translate3d(-50%,0,0)}}
+  @keyframes bobA{0%,100%{transform:translateY(8px)}50%{transform:translateY(-22px)}}
+  @keyframes bobB{0%,100%{transform:translateY(-18px)}50%{transform:translateY(14px)}}
 
   /* grain */
   body::after{
@@ -183,7 +192,7 @@
   }
 
   @media (prefers-reduced-motion:reduce){
-    .ribbon,.star,.horizon svg,.wordmark,.tile,.tile::after,.url .dot,header,footer{animation:none!important}
+    .ribbon,.star,.horizon .wv,.horizon .wv svg,.wordmark,.tile,.tile::after,.url .dot,header,footer{animation:none!important}
     .tile{opacity:1;transform:none}.wordmark{-webkit-text-fill-color:#ff8e7a}
   }
 </style>
@@ -198,7 +207,9 @@
     <div class="ribbon r3"></div>
   </div>
   <div class="horizon" aria-hidden="true">
-    <svg viewBox="0 0 1440 320" preserveAspectRatio="none"><path fill="#0a0518" d="M0,256L80,250.7C160,245,320,235,480,240C640,245,800,267,960,261.3C1120,256,1280,224,1360,208L1440,192L1440,320L0,320Z M1440,256L1520,250.7C1600,245,1760,235,1920,240C2080,245,2240,267,2400,261.3C2560,256,2720,224,2800,208L2880,192L2880,320L1440,320Z"/></svg>
+    <div class="wv wv-back"><svg viewBox="0 0 2880 320" preserveAspectRatio="none"><path fill="#7a5cff" fill-opacity="0.5" d="M0.0,110.0C120.0,94.7 240.0,64.0 360.0,64.0C480.0,64.0 600.0,94.7 720.0,110.0C840.0,125.3 960.0,156.0 1080.0,156.0C1200.0,156.0 1320.0,125.3 1440.0,110.0C1560.0,94.7 1680.0,64.0 1800.0,64.0C1920.0,64.0 2040.0,94.7 2160.0,110.0C2280.0,125.3 2400.0,156.0 2520.0,156.0C2640.0,156.0 2760.0,125.3 2880.0,110.0L2880,320L0,320Z"/></svg></div>
+    <div class="wv wv-mid"><svg viewBox="0 0 2880 320" preserveAspectRatio="none"><path fill="#ff4d97" fill-opacity="0.55" d="M0.0,103.3C60.0,94.5 120.0,111.5 180.0,128.7C240.0,145.9 300.0,197.9 360.0,206.7C420.0,215.5 480.0,198.5 540.0,181.3C600.0,164.1 660.0,112.1 720.0,103.3C780.0,94.5 840.0,111.5 900.0,128.7C960.0,145.9 1020.0,197.9 1080.0,206.7C1140.0,215.5 1200.0,198.5 1260.0,181.3C1320.0,164.1 1380.0,112.1 1440.0,103.3C1500.0,94.5 1560.0,111.5 1620.0,128.7C1680.0,145.9 1740.0,197.9 1800.0,206.7C1860.0,215.5 1920.0,198.5 1980.0,181.3C2040.0,164.1 2100.0,112.1 2160.0,103.3C2220.0,94.5 2280.0,111.5 2340.0,128.7C2400.0,145.9 2460.0,197.9 2520.0,206.7C2580.0,215.5 2640.0,198.5 2700.0,181.3C2760.0,164.1 2820.0,112.1 2880.0,103.3L2880,320L0,320Z"/></svg></div>
+    <div class="wv wv-front"><svg viewBox="0 0 2880 320" preserveAspectRatio="none"><path fill="#ff7a5c" fill-opacity="0.6" d="M0.0,147.8C120.0,163.3 240.0,229.2 360.0,246.6C480.0,264.0 600.0,267.7 720.0,252.2C840.0,236.7 960.0,170.8 1080.0,153.4C1200.0,136.0 1320.0,132.3 1440.0,147.8C1560.0,163.3 1680.0,229.2 1800.0,246.6C1920.0,264.0 2040.0,267.7 2160.0,252.2C2280.0,236.7 2400.0,170.8 2520.0,153.4C2640.0,136.0 2760.0,132.3 2880.0,147.8L2880,320L0,320Z"/></svg></div>
   </div>
 
   <main class="wrap">
