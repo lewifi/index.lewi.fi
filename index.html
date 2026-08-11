@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- index.lewi.fi · v1.7.3 · build 2026-08-11 16:15 AEST -->
+<!-- index.lewi.fi · v1.7.5 · build 2026-08-11 16:21 AEST -->
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -130,7 +130,7 @@
     animation:shimmer 12s ease infinite;
   }
   @keyframes shimmer{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
-  .tagline{font-size:clamp(15px,2vw,18px);color:#000;max-width:46ch;text-shadow:0 0 8px rgba(255,255,255,.6),0 0 18px rgba(247,238,252,.4)}
+  .tagline{font-size:clamp(15px,2vw,18px);color:#000;max-width:46ch;text-shadow:0 0 14px rgba(255,255,255,.6),0 0 34px rgba(247,238,252,.45),0 0 54px rgba(247,238,252,.3)}
 
   /* ---- grid ---- */
   .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:clamp(12px,1.6vw,20px)}
@@ -179,7 +179,7 @@
   .tile .arrow{transition:transform .5s cubic-bezier(.2,.8,.2,1);display:inline-block}
   .tile:hover .arrow{transform:translate(4px,-4px)}
 
-  footer{margin-top:clamp(30px,5vw,52px);font-family:"DM Mono",monospace;font-size:12px;letter-spacing:.04em;color:var(--cream-soft);display:flex;flex-wrap:wrap;gap:6px 18px;justify-content:space-between;opacity:0;animation:rise .8s ease forwards .9s}
+  footer{margin-top:clamp(30px,5vw,52px);font-family:"DM Mono",monospace;font-size:12px;letter-spacing:.04em;color:#000;text-shadow:0 0 8px rgba(255,255,255,.6),0 0 18px rgba(247,238,252,.4);display:flex;flex-wrap:wrap;gap:6px 18px;justify-content:space-between;opacity:0;animation:rise .8s ease forwards .9s}
 
   @keyframes rise{to{opacity:1;transform:translateY(0)}}
 
@@ -242,6 +242,7 @@
     <footer>
       <span>Lewi Hirvelä</span>
       <span>Brisbane · Lapland · Hong Kong</span>
+      <span>v1.7.5</span>
     </footer>
   </main>
 
