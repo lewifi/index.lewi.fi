@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- index.lewi.fi · v1.7.5 · build 2026-08-11 16:21 AEST -->
+<!-- index.lewi.fi · v1.8.2 · build 2026-08-11 16:36 AEST -->
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -130,7 +130,11 @@
     animation:shimmer 12s ease infinite;
   }
   @keyframes shimmer{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
-  .tagline{font-size:clamp(15px,2vw,18px);color:#000;max-width:46ch;text-shadow:0 0 14px rgba(255,255,255,.6),0 0 34px rgba(247,238,252,.45),0 0 54px rgba(247,238,252,.3)}
+  .tagline{font-size:clamp(15px,2vw,18px);color:#000;max-width:46ch;text-shadow:0 0 28px rgba(255,255,255,.6),0 0 68px rgba(247,238,252,.45),0 0 108px rgba(247,238,252,.3)}
+  .contact{display:inline-block;margin-top:16px;font-family:"DM Mono",monospace;font-size:13px;font-weight:700;letter-spacing:.04em;color:#000;text-shadow:0 0 10px rgba(255,255,255,.65),0 0 22px rgba(247,238,252,.4);text-decoration:none;transition:opacity .3s}
+  .contact:hover{opacity:.85}
+  .contact::after{content:"";display:block;height:1px;margin-top:3px;background:var(--cream);transform:scaleX(0);transform-origin:left;transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+  .contact:hover::after{transform:scaleX(1)}
 
   /* ---- grid ---- */
   .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:clamp(12px,1.6vw,20px)}
@@ -217,6 +221,7 @@
       <div class="eyebrow">Index</div>
       <h1 class="wordmark">Lewi Hirvelä</h1>
       <p class="tagline">Everything in one place. Design, photography, sound, and a couple of side projects.</p>
+      <a class="contact" href="mailto:lewi.hirvela@gmail.com">say hello ↗</a>
     </header>
 
     <nav class="grid">
@@ -225,15 +230,15 @@
       <a class="tile" style="--accent:#37bef5" href="https://pastedrops.com" target="_blank" rel="noopener"><span class="num">03</span><div class="body"><div class="name">PasteDrops</div><div class="desc">Cools down your angry texts.</div></div><div class="url"><span><span class="dot"></span> pastedrops.com</span><span class="arrow">↗</span></div></a>
       <a class="tile" style="--accent:#e6a83c" href="https://kitchensisland.com" target="_blank" rel="noopener"><span class="num">04</span><div class="body"><div class="name">The Island</div><div class="desc">A home cooking service operating system.</div></div><div class="url"><span><span class="dot"></span> kitchensisland.com</span><span class="arrow">↗</span></div></a>
       <a class="tile" style="--accent:#2196f3" href="https://ephix.net" target="_blank" rel="noopener"><span class="num">05</span><div class="body"><div class="name">EPHIX Pulse</div><div class="desc">Live TV and film trending aggregator.</div></div><div class="url"><span><span class="dot"></span> ephix.net</span><span class="arrow">↗</span></div></a>
-      <a class="tile" style="--accent:#d4af37" href="https://covenantodyssey.lewihirvela.com" target="_blank" rel="noopener"><span class="num">06</span><div class="body"><div class="name">Covenant Odyssey</div><div class="desc">A branching narrative of fractured kingdoms.</div></div><div class="url"><span><span class="dot"></span> covenantodyssey.lewihirvela.com</span><span class="arrow">↗</span></div></a>
-      <a class="tile" style="--accent:#ff6f8e" href="https://ephix.net/wc2026" target="_blank" rel="noopener"><span class="num">07</span><div class="body"><div class="name">World Cup 2026</div><div class="desc">Schedule, calendar importer and stats.</div></div><div class="url"><span><span class="dot"></span> ephix.net/wc2026</span><span class="arrow">↗</span></div></a>
-      <a class="tile" style="--accent:#e7b3d2" href="https://melunoise.com" target="_blank" rel="noopener"><span class="num">08</span><div class="body"><div class="name">MELU</div><div class="desc">My band. "When Noise Becomes" out now.</div></div><div class="url"><span><span class="dot"></span> melunoise.com</span><span class="arrow">↗</span></div></a>
-      <a class="tile" style="--accent:#8f5cff" href="https://bedtimetunes.com" target="_blank" rel="noopener"><span class="num">09</span><div class="body"><div class="name">Bedtime Tunes</div><div class="desc">Ambient music to drift off to.</div></div><div class="url"><span><span class="dot"></span> bedtimetunes.com</span><span class="arrow">↗</span></div></a>
-      <a class="tile" style="--accent:#bfe3ff" href="https://lumodreams.com" target="_blank" rel="noopener"><span class="num">10</span><div class="body"><div class="name">Lumo Dreams</div><div class="desc">An interactive puppy tale under the aurora.</div></div><div class="url"><span><span class="dot"></span> lumodreams.com</span><span class="arrow">↗</span></div></a>
-      <a class="tile" style="--accent:#ff5f9e" href="https://instagram.com/lewi.fi" target="_blank" rel="noopener"><span class="num">11</span><div class="body"><div class="name">Instagram</div><div class="desc">The photography feed.</div></div><div class="url"><span><span class="dot"></span> @lewi.fi</span><span class="arrow">↗</span></div></a>
-      <a class="tile" style="--accent:#f25fb5" href="https://instagram.com/lewihirvela.photo" target="_blank" rel="noopener"><span class="num">12</span><div class="body"><div class="name">Instagram</div><div class="desc">More photo work.</div></div><div class="url"><span><span class="dot"></span> @lewihirvela.photo</span><span class="arrow">↗</span></div></a>
-      <a class="tile" style="--accent:#d264e0" href="https://linkedin.com/in/lewihirvela" target="_blank" rel="noopener"><span class="num">13</span><div class="body"><div class="name">LinkedIn</div><div class="desc">The professional side.</div></div><div class="url"><span><span class="dot"></span> in/lewihirvela</span><span class="arrow">↗</span></div></a>
-      <a class="tile" style="--accent:#b66bff" href="https://github.com/lewifi" target="_blank" rel="noopener"><span class="num">14</span><div class="body"><div class="name">GitHub</div><div class="desc">Code and the things I tinker with.</div></div><div class="url"><span><span class="dot"></span> github.com/lewifi</span><span class="arrow">↗</span></div></a>
+      <a class="tile" style="--accent:#bfe3ff" href="https://lumodreams.com" target="_blank" rel="noopener"><span class="num">06</span><div class="body"><div class="name">Lumo Dreams</div><div class="desc">An interactive puppy tale under the aurora.</div></div><div class="url"><span><span class="dot"></span> lumodreams.com</span><span class="arrow">↗</span></div></a>
+      <a class="tile" style="--accent:#d4af37" href="https://covenantodyssey.lewihirvela.com" target="_blank" rel="noopener"><span class="num">07</span><div class="body"><div class="name">Covenant Odyssey</div><div class="desc">A branching narrative of fractured kingdoms.</div></div><div class="url"><span><span class="dot"></span> covenantodyssey.lewihirvela.com</span><span class="arrow">↗</span></div></a>
+      <a class="tile" style="--accent:#ff6f8e" href="https://ephix.net/wc2026" target="_blank" rel="noopener"><span class="num">08</span><div class="body"><div class="name">World Cup 2026</div><div class="desc">Schedule, calendar importer and stats.</div></div><div class="url"><span><span class="dot"></span> ephix.net/wc2026</span><span class="arrow">↗</span></div></a>
+      <a class="tile" style="--accent:#e7b3d2" href="https://melunoise.com" target="_blank" rel="noopener"><span class="num">09</span><div class="body"><div class="name">MELU</div><div class="desc">My band. "When Noise Becomes" out now.</div></div><div class="url"><span><span class="dot"></span> melunoise.com</span><span class="arrow">↗</span></div></a>
+      <a class="tile" style="--accent:#8f5cff" href="https://bedtimetunes.com" target="_blank" rel="noopener"><span class="num">10</span><div class="body"><div class="name">Bedtime Tunes</div><div class="desc">Ambient music to drift off to.</div></div><div class="url"><span><span class="dot"></span> bedtimetunes.com</span><span class="arrow">↗</span></div></a>
+      <a class="tile" style="--accent:#b66bff" href="https://github.com/lewifi" target="_blank" rel="noopener"><span class="num">11</span><div class="body"><div class="name">GitHub</div><div class="desc">Code and the things I tinker with.</div></div><div class="url"><span><span class="dot"></span> github.com/lewifi</span><span class="arrow">↗</span></div></a>
+      <a class="tile" style="--accent:#ff5f9e" href="https://instagram.com/lewi.fi" target="_blank" rel="noopener"><span class="num">12</span><div class="body"><div class="name">Instagram</div><div class="desc">The photography feed.</div></div><div class="url"><span><span class="dot"></span> @lewi.fi</span><span class="arrow">↗</span></div></a>
+      <a class="tile" style="--accent:#f25fb5" href="https://instagram.com/lewihirvela.photo" target="_blank" rel="noopener"><span class="num">13</span><div class="body"><div class="name">Instagram</div><div class="desc">More photo work.</div></div><div class="url"><span><span class="dot"></span> @lewihirvela.photo</span><span class="arrow">↗</span></div></a>
+      <a class="tile" style="--accent:#d264e0" href="https://linkedin.com/in/lewihirvela" target="_blank" rel="noopener"><span class="num">14</span><div class="body"><div class="name">LinkedIn</div><div class="desc">The professional side.</div></div><div class="url"><span><span class="dot"></span> in/lewihirvela</span><span class="arrow">↗</span></div></a>
       <a class="tile" style="--accent:#8f73ff" href="https://flickr.com/photos/ephix/albums" target="_blank" rel="noopener"><span class="num">15</span><div class="body"><div class="name">Flickr</div><div class="desc">The photo archive.</div></div><div class="url"><span><span class="dot"></span> flickr.com/ephix</span><span class="arrow">↗</span></div></a>
       <a class="tile" style="--accent:#6f8cff" href="https://vimeo.com/lewi" target="_blank" rel="noopener"><span class="num">16</span><div class="body"><div class="name">Vimeo</div><div class="desc">Motion and film.</div></div><div class="url"><span><span class="dot"></span> vimeo.com/lewi</span><span class="arrow">↗</span></div></a>
       <a class="tile" style="--accent:#5fb0ff" href="mailto:me@lewi.fi"><span class="num">17</span><div class="body"><div class="name">Say hello</div><div class="desc">Drop me a line any time.</div></div><div class="url"><span><span class="dot"></span> me@lewi.fi</span><span class="arrow">→</span></div></a>
@@ -242,7 +247,7 @@
     <footer>
       <span>Lewi Hirvelä</span>
       <span>Brisbane · Lapland · Hong Kong</span>
-      <span>v1.7.5</span>
+      <span>v1.8.2</span>
     </footer>
   </main>
 
