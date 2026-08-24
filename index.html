@@ -123,11 +123,15 @@
   .eyebrow{font-family:"DM Mono",monospace;font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--cream-soft);display:flex;align-items:center;gap:10px}
   .eyebrow::before{content:"";width:26px;height:1px;background:var(--cream-soft);display:inline-block}
   .wordmark{
-    font-family:"Fraunces",serif;font-weight:600;font-size:clamp(48px,11vw,108px);line-height:.92;letter-spacing:-.02em;margin:18px 0 10px;
+    margin:18px 0 10px;height:clamp(56px,13vw,130px);aspect-ratio:1954.52/769.63;
     background:linear-gradient(100deg,#41f0c4,#4fd1ff 30%,#ff8e7a 55%,#ff5c9d 75%,#b56bff);
     background-size:280% 100%;
-    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
     animation:shimmer 12s ease infinite;
+    -webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1954.52 769.63'%3E%3Cpath d='M871.14,236.77h193.44s3.61,11.98,12.82,47.91l69.11,260.77c6.45,24.88,9.22,49.76,9.22,49.76h1.84s3.69-24.87,11.06-49.76l86.61-306.84h103.2l87.54,306.84c7.37,24.88,10.13,49.76,10.13,49.76h1.84s2.76-24.87,9.21-49.76l68.19-260.77c9.22-35.93,12.59-47.91,12.59-47.91h133.92v99.52h-33.43l-5.27,16.58-112.41,353.83h-131.76l-80.17-268.13c-7.37-24.88-11.06-50.68-11.06-50.68h-1.84s-4.61,25.8-11.98,50.68l-79.24,268.13h-132.68l-112.42-353.83-5.52-16.58h-22.19s-15.83-60.1-70.74-99.52Z'/%3E%3Cpath d='M1897.04,236.77v371.34h-.31v98.59h-116.22s.42-18.43.42-62.66v-287.49l-.31-20.27h-56.82v-99.52h173.23Z'/%3E%3Crect x='1723.82' y='72' width='131.28' height='122.13'/%3E%3Cpath d='M445.95,566.45h-78.94v37.97h-183.36V115.14c0-43.31-.86-62.66-.86-62.66H62.93v654.22h483.95s-70.16-42.14-100.93-140.25Z'/%3E%3Cpath d='M708.87,225.71c134.53,0,208.24,98.59,208.24,222.99,0,13.82-2.76,43.31-2.76,43.31h-324.34c9.22,82.93,70.03,126.23,140.98,126.23,75.55,0,275.64-7.45,275.64-7.45l30.49,95.91s-197.4,11.06-314.43,11.06c-155.72,0-252.47-112.42-252.47-246.02,0-144.66,97.67-246.02,238.65-246.02ZM797.33,410.92c-1.84-56.21-40.54-94.91-88.46-94.91-59.89,0-102.28,35.94-115.18,94.91h203.63Z'/%3E%3C/svg%3E");
+    mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1954.52 769.63'%3E%3Cpath d='M871.14,236.77h193.44s3.61,11.98,12.82,47.91l69.11,260.77c6.45,24.88,9.22,49.76,9.22,49.76h1.84s3.69-24.87,11.06-49.76l86.61-306.84h103.2l87.54,306.84c7.37,24.88,10.13,49.76,10.13,49.76h1.84s2.76-24.87,9.21-49.76l68.19-260.77c9.22-35.93,12.59-47.91,12.59-47.91h133.92v99.52h-33.43l-5.27,16.58-112.41,353.83h-131.76l-80.17-268.13c-7.37-24.88-11.06-50.68-11.06-50.68h-1.84s-4.61,25.8-11.98,50.68l-79.24,268.13h-132.68l-112.42-353.83-5.52-16.58h-22.19s-15.83-60.1-70.74-99.52Z'/%3E%3Cpath d='M1897.04,236.77v371.34h-.31v98.59h-116.22s.42-18.43.42-62.66v-287.49l-.31-20.27h-56.82v-99.52h173.23Z'/%3E%3Crect x='1723.82' y='72' width='131.28' height='122.13'/%3E%3Cpath d='M445.95,566.45h-78.94v37.97h-183.36V115.14c0-43.31-.86-62.66-.86-62.66H62.93v654.22h483.95s-70.16-42.14-100.93-140.25Z'/%3E%3Cpath d='M708.87,225.71c134.53,0,208.24,98.59,208.24,222.99,0,13.82-2.76,43.31-2.76,43.31h-324.34c9.22,82.93,70.03,126.23,140.98,126.23,75.55,0,275.64-7.45,275.64-7.45l30.49,95.91s-197.4,11.06-314.43,11.06c-155.72,0-252.47-112.42-252.47-246.02,0-144.66,97.67-246.02,238.65-246.02ZM797.33,410.92c-1.84-56.21-40.54-94.91-88.46-94.91-59.89,0-102.28,35.94-115.18,94.91h203.63Z'/%3E%3C/svg%3E");
+    -webkit-mask-size:contain;mask-size:contain;
+    -webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;
+    -webkit-mask-position:left center;mask-position:left center;
   }
   @keyframes shimmer{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
   .tagline{font-size:clamp(15px,2vw,18px);color:#000;max-width:46ch;text-shadow:0 0 28px rgba(255,255,255,.6),0 0 68px rgba(247,238,252,.45),0 0 108px rgba(247,238,252,.3)}
@@ -176,7 +180,8 @@
   .tile .body{position:relative;z-index:1}
   .tile .name{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(21px,2.4vw,27px);line-height:1.04;letter-spacing:-.01em;margin-bottom:6px}
   .tile .desc{font-size:13.5px;line-height:1.32;color:var(--cream-soft)}
-  .tile .url{font-family:"DM Mono",monospace;font-size:11.5px;letter-spacing:.02em;color:var(--cream);position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;gap:8px}
+  .tile .url{font-family:"DM Mono",monospace;font-size:11.5px;letter-spacing:.02em;color:var(--cream);position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;gap:8px;min-width:0}
+  .tile .url>span:first-child{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
   .tile .url .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 8px 0 var(--accent);transition:box-shadow .5s,transform .5s;flex:0 0 auto;animation:pulse 3.5s ease-in-out infinite}
   @keyframes pulse{0%,100%{box-shadow:0 0 6px 0 var(--accent)}50%{box-shadow:0 0 16px 3px var(--accent)}}
   .tile:hover .url .dot{transform:scale(1.2)}
@@ -197,7 +202,7 @@
 
   @media (prefers-reduced-motion:reduce){
     .ribbon,.star,.horizon .wv,.horizon .wv svg,.wordmark,.tile,.tile::after,.url .dot,header,footer{animation:none!important}
-    .tile{opacity:1;transform:none}.wordmark{-webkit-text-fill-color:#ff8e7a}
+    .tile{opacity:1;transform:none}
   }
 </style>
 </head>
@@ -219,14 +224,14 @@
   <main class="wrap">
     <header>
       <div class="eyebrow">Index</div>
-      <h1 class="wordmark">Lewi Hirvelä</h1>
+      <h1 class="wordmark" role="img" aria-label="Lewi Hirvelä"></h1>
       <p class="tagline">Everything in one place. Design, photography, sound, and a couple of side projects.</p>
       <a class="contact" href="mailto:lewi.hirvela@gmail.com">say hello ↗</a>
     </header>
 
     <nav class="grid">
       <a class="tile" style="--accent:#44e6c4" href="https://lewihirvela.com" target="_blank" rel="noopener"><span class="num">01</span><div class="body"><div class="name">Portfolio</div><div class="desc">Design, motion and brand work.</div></div><div class="url"><span><span class="dot"></span> lewihirvela.com</span><span class="arrow">↗</span></div></a>
-      <a class="tile" style="--accent:#3fd0e6" href="https://lewi.fi" target="_blank" rel="noopener"><span class="num">02</span><div class="body"><div class="name">Photography</div><div class="desc">Portraits, weddings, editorial.</div></div><div class="url"><span><span class="dot"></span> lewi.fi</span><span class="arrow">↗</span></div></a>
+      <a class="tile" style="--accent:#3fd0e6" href="http://lewihirvelaphoto.myportfolio.com/" target="_blank" rel="noopener"><span class="num">02</span><div class="body"><div class="name">Photography</div><div class="desc">Portraits, weddings, editorial.</div></div><div class="url"><span><span class="dot"></span> lewihirvelaphoto.myportfolio.com</span><span class="arrow">↗</span></div></a>
       <a class="tile" style="--accent:#37bef5" href="https://pastedrops.com" target="_blank" rel="noopener"><span class="num">03</span><div class="body"><div class="name">PasteDrops</div><div class="desc">Cools down your angry texts.</div></div><div class="url"><span><span class="dot"></span> pastedrops.com</span><span class="arrow">↗</span></div></a>
       <a class="tile" style="--accent:#e6a83c" href="https://kitchensisland.com" target="_blank" rel="noopener"><span class="num">04</span><div class="body"><div class="name">The Island</div><div class="desc">A home cooking service operating system.</div></div><div class="url"><span><span class="dot"></span> kitchensisland.com</span><span class="arrow">↗</span></div></a>
       <a class="tile" style="--accent:#2196f3" href="https://ephix.net" target="_blank" rel="noopener"><span class="num">05</span><div class="body"><div class="name">EPHIX Pulse</div><div class="desc">Live TV and film trending aggregator.</div></div><div class="url"><span><span class="dot"></span> ephix.net</span><span class="arrow">↗</span></div></a>
